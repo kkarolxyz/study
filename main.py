@@ -11,14 +11,14 @@ class Sensor:
 
     def add_temperature(self):
         print("DEF one")
-        time.sleep(2)
+        time.sleep(1)
         # temp = "temperature from add_temperature"
         # time.sleep(10)
         # return temp
 
-    def update(self, temperature):
+    def update(self):
         print("DEF two")
-        self.add_temperature = temperature
+        #self.add_temperature = temperature
 
 
 
@@ -26,11 +26,14 @@ while True:
     sensor = Sensor()
     now = datetime.now()
     sec = now.second
-    if sec == 30:
+    if sec == 59:
         print(sec)
         sensor.add_temperature()
     else:
+        time.sleep(1)
         print(sec)
-        sensor.update(80)
+        t = now.strftime("%H:%M:%S")
+        print(t)
+        sensor.update()
         print("-----------------------------------------------------")
 
